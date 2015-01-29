@@ -1,20 +1,20 @@
 #! /bin/sh
 #### BEGIN INIT INFO
-# Provides: simpleproxy-mysql
+# Provides: simpleproxy
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: Simpleproxy for MySQL
-# Description: TCP proxy to forward incoming MySQL connections
+# Short-Description: Simpleproxy
+# Description: TCP proxy to forward incoming connections
 ### END INIT INFO
 
 # Do NOT "set -e"
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
 PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
-DESC="Simpleproxy for MySQL"
-NAME=simpleproxy-mysql
+DESC="Simpleproxy"
+NAME=simpleproxy
 DAEMON=/usr/bin/simpleproxy
 DAEMON_ARGS="-L<%= @db_port %> -R <%= @db_host %>:<%= @db_port %> -d"
 SCRIPTNAME=/etc/init.d/$NAME
